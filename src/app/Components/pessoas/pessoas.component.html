@@ -1,0 +1,99 @@
+<div class="container p-5" *ngIf="visibilidadeTabela">
+<div class="border borer-light rouded p-5">
+    <div>
+
+<button type="button" class="btn btn-sm btn-secoundary" (click)="ExibirFormularioCadastro()">
+    Nova Pessoa
+</button>
+</div>
+
+<hr/>
+
+<table class="table table-striped table-light  table-hover table-sm" *ngIf="pessoas">
+<tr class="thead-light">
+    <th>
+        Nome
+    </th>
+    <th>
+        Sobrenome
+    </th>
+    <th>
+        Idade
+    </th>
+    <th>
+        Profissão
+    </th>
+    <th>
+        Ações
+    </th>
+</tr>
+
+<tr *ngFor="let Pessoa of pessoas">
+<td>{{Pessoa.nome}}</td>
+<td>{{Pessoa.sobrenome}}</td>
+<td>{{Pessoa.idade}}</td>
+<td>{{Pessoa.profissao}}</td>
+<td>
+    <ui-button typeBtn="outline-primary" text="Atualizar" (click)="ExibirFormularioAlteracao(Pessoa.id)" ></ui-button>
+    <ui-button typeBtn="outline-secondary" text="Excluir" (click)="DeletarPessoa(Pessoa.id)" ></ui-button>
+
+    <!-- <button type="button" class="btn btn-sm btn-outline-info" (click)="ExibirFormularioAlteracao(Pessoa.id)">Atualizar</button> 
+<button type="button" class="btn btn-sm btn-outline-danger" (click)="DeletarPessoa(Pessoa.id)">Excluir</button>  -->
+</td>
+</tr>
+
+
+</table>
+
+</div>
+
+</div>
+
+
+<div class="container p-5" *ngIf="visibilidadeFormulario">
+    <div class="row">
+        <div class="col-6 border border-light rouded p-5 shadow" *ngIf="formulario" >
+
+            <h6>{{tituloFormulario}}</h6>
+            <hr/>
+            <form [formGroup]="formulario" (ngSubmit)="EnviarFormulario()">
+            <div class="formGroup">
+             <label>Nome</label>
+             <input type="text" class="form-control form-control-sm" [formControlName]="'nome'"/>
+            </div>
+
+            <div class="formGroup">
+                <label>Sobrenome</label>
+                <input type="text" class="form-control form-control-sm" [formControlName]="'sobrenome'"/>
+               </div>
+
+               <div class="formGroup">
+                <label>Idade</label>
+                <input type="number" class="form-control form-control-sm" [formControlName]="'idade'"/>
+               </div>
+
+               <div class="formGroup">
+                <label>Profissão</label>
+                <input type="text" class="form-control form-control-sm" [formControlName]="'profissao'"/>
+               </div>
+
+               <br>
+               <div class="container">
+                <div class="row">
+                    <div>
+                        <button type="submit" class="btn btn-sm btn-outline-secondary">Salvar</button>
+                    <button type="button" class="btn btn-sm btn-light" (click)=" ExibirTabela()">Voltar</button>
+
+                    </div>
+
+             
+                </div>
+                
+               </div>
+
+
+
+            </form>
+        </div>
+    </div>
+</div>

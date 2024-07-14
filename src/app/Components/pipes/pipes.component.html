@@ -1,0 +1,30 @@
+<p>{{Nome | lowercase}}</p>
+<p>{{Nome | uppercase}}</p>
+<p>{{Nome2 | titlecase}}</p>
+<p>{{Nome2 | slice:5}}</p>
+<p>{{VarJson| json}}</p>
+<p>{{0.50| percent}}</p>
+<p>{{1000| currency}}</p>
+<p>{{Data|date:'shortDate'}}</p>
+<p>{{Data|date:'short'}}</p>
+<p>{{Data|date:'shortTime'}}</p>
+
+<input type="text" name="filtro" [(ngModel)]="filtro">
+
+<UL>
+    <LI *ngFor="let livro of livros | filtroArray:filtro">
+{{livro}}
+    </LI>
+</UL>
+
+
+
+
+<input type="text" #NovoValor>
+<ui-button text="Adicionar livro" (click)="addNovoValor(NovoValor.value)">
+
+
+
+
+
+
